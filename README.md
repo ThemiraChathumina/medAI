@@ -81,7 +81,24 @@ To run this application locally, follow these steps:
 3. **Setup and run the backend in [medAI Backend](https://github.com/ThemiraChathumina/radiology).**
 
 4. **Run the application:**
+
    ```bash
    npm run dev
 
    ```
+
+## Credits
+
+This application uses models and techniques described in the following paper:
+
+> **Interactive and Explainable Region-guided Radiology Report Generation**  
+> Tim Tanida, Philip Müller, Georgios Kaissis, Daniel Rueckert  
+> In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2023.
+
+The code for the models can be found in their [GitHub repository](https://github.com/ttanida/rgrg/tree/main).
+
+The following datasets were used for model training:
+
+- [Brain Tumor Classification (MRI) Dataset](https://www.kaggle.com/datasets/sartajbhuvaji/brain-tumor-classification-mri)
+- [Chest X-ray Pneumonia Dataset](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia)
+
