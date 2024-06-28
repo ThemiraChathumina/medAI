@@ -123,6 +123,13 @@ function ChestXray({ results, selectedFile }: ChestXrayProps) {
   const [selectedTab, setSelectedTab] = useState<number>(0);
   const imageRef = useRef<HTMLImageElement>(null);
   const dragStartRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  const prompt =
+    results && "summary" in results
+      ? `${results.summary} - this is the summary obtained from the AI model. give a brief description of the 
+    summary. Only answer questions from the user that is related to 
+    medical image analysis and this summary and dont answer anything else.
+    inform the user to ask only questions related to medicine or the summary.`
+      : "";
   const pneumonia =
     results && "pneumonia" in results
       ? results.pneumonia === "Pneumonia"
@@ -375,10 +382,7 @@ function ChestXray({ results, selectedFile }: ChestXrayProps) {
                 ))}
               </TabPanel>
               <TabPanel>
-                <Chat
-                  userId={"user-id"}
-                  initialPrompt={"Hello, how can I help you today?"}
-                />
+                <Chat userId={"user-id"} initialPrompt={prompt} />
               </TabPanel>
             </TabPanels>
           </Tabs>
